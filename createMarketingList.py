@@ -20,40 +20,50 @@
 # Note: you can use the comments below to guide you through the logic of the code. You are not
 # required to follow it. ALSO NOT ALL STEPS HAVE BEEN COMMENTED. You may have additional steps.
 
-
 import csv
 
 # open the vendorlist file
+infile = open('VendorList.csv','r')
 
 
 # create a csv object from the file object
-
+csvfile = csv.reader(infile, delimiter=',')
 
 # create an output file
 
-
-
+outfile = open('output.csv','w')
+outfile.write('Name, Email, Phone\n')
+next(infile)
 
 
 # create an empty dictionary
+mydict = {}
 
 
 
 # iterate through the csv object
+for record in csvfile:
+    FN = record[1]
+    LN = record[2]
+    Email = ' ' + record[4]
+    Phone = ' ' + record[5]
+    FullName = record[1] + ' ' + record[2]
+    outfile.write(FullName)
+    outfile.write(Email)
+    outfile.write(Phone + '\n')
 
-
-
-
-    # add the key-value pair to the dictionary
-
-
+    
+# add the key-value pair to the dictionary
+    mydict['FullName'] = {FullName:Email}
+    mydict['FullName'] = {FullName:Phone}
 
 # print the dictionary after the loop is finished
-
+print(mydict)
 
 
 # iternate through the dictionary and write to the output file
-
+for record in mydict:
+    outfile.write(FullName)
 
 
 # close your output file
