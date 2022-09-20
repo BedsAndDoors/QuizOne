@@ -68,3 +68,4 @@ for record in mydict:
 
 # close your output file
 
+outfile.close()
